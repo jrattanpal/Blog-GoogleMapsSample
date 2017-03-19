@@ -11,12 +11,16 @@
             
             <div id="map"></div>
             <script>
-            //var lexOrigin = "https://jrnewdeorg-dev-ed.lightning.force.com";
+            var lexOrigin = 'https://{!$CurrentPage.parameters.lcHost}';
+            
+            //Data for Google map
             var data;
             
             //Send message to LC
             function sendToLC(message) {
-                parent.postMessage(message, lexOrigin);
+                if(typeof(lexOrigin) != 'undefined'){
+	                parent.postMessage(message, lexOrigin);
+                }
             }
             
             //Receive message from LC
@@ -29,10 +33,14 @@
                 // Handle message
                 console.log('Data Sent to VF: ', event.data);
                 data = event.data;
-                //Load Google Map Script
-                var script = document.createElement("script");
-                script.src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyDLrw96AqCjIRMipWgIm-3pqoRSwQrHtCs&callback=initMap";
-                document.getElementsByTagName("head")[0].appendChild(script);        
+    
+                
+                if(typeof(event.data.loadGoogleMap) != 'undefined'){
+                    //Load Google Map Script
+                    var script = document.createElement("script");
+                    script.src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyDLrw96AqCjIRMipWgIm-3pqoRSwQrHtCs&callback=initMap";
+                    document.getElementsByTagName("head")[0].appendChild(script);        
+                }
             }, false);
             
             //Callback when Google Map is loaded

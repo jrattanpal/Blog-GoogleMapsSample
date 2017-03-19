@@ -1,7 +1,8 @@
 ({
 	doInit : function(component, event, helper) {
-  		//var vfOrigin = component.get("v.vfHost");
-  		//
+	    //Send LC Host as parameter to VF page so VF page can send message to LC; make it all dynamic
+        component.set('v.lcHost', window.location.hostname);
+                      
   		//Add message listener
         window.addEventListener("message", function(event) {
             //Can enable origin control for more security
