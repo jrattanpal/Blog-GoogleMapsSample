@@ -1,5 +1,11 @@
 # Implement Google Maps in Lightning Components
 
+
+<a href="https://githubsfdeploy.herokuapp.com?owner=jrattanpal&repo=Blog-GoogleMapsSample">
+  <img alt="Deploy to Salesforce" src="https://raw.githubusercontent.com/afawcett/githubsfdeploy/master/deploy.png">
+</a>
+<br/><br/>
+
 GogoleMaps.vfp: Visualforce Page
 - Google Maps library 
 - Listen to “message” event for window.postMessage
@@ -18,5 +24,5 @@ DemoApp.app
 - Prepares data in proper format
 - Send data to GoogleMaps.cmp to draw Google Map
 
-##Architecture
-![Architecture](https://github.com/jrattanpal/Blog-GoogleMapsSample/blob/master/Resources/Assets/GoogleMapsLightningComponents-Architecture.png)
+## Architecture
+![Architecture](https://github.com/jrattanpal/Blog-GoogleMapsSample/blob/master/Resources/Assets/GoogleMapsLightningComponents-Architecture.png?raw=true)
