@@ -1,0 +1,27 @@
+<aura:component access="global">
+    <!-- Needed to send messages to VF page. But we will get it from VF itself -->
+    <aura:attribute name="vfHost" type="String" default="" />
+    <!-- Google Map options -->
+    <aura:attribute name="mapOptions" type="Object" default='{"zoom": 4}' />
+    <!-- 
+		Goole map option to set center becasue it's required in following format
+		{"lat":-25.363882, "lng":131.044922}
+	 -->
+    <aura:attribute name="mapOptionsCenter" type="Object" />
+    <!--
+		Google map data for marker in following format
+		[{"lat":-25.363882, "lng":131.044922, "markerText":"This is an account"}]
+   	-->
+    <aura:attribute name="mapData" type="Object[]" />
+    
+    <aura:attribute name="loadMap" type="Boolean" default="false" />
+    
+    <!-- Domain of LC for VF to send message -->
+    <aura:attribute name="lcHost" type="String" />
+    
+    
+    <!-- Set listener from VF. This is to check when VF is loaded so we can send marker data -->
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+   
+	<iframe aura:id="vfFrame" src="{! '/apex/GoogleMap?lcHost=' + v.lcHost}" width="1000" height="500"/>
+</aura:component>
